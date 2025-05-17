@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "ABC Corporation",
+    "address": "123 Main St, Anytown, USA",
+    "phone": "555-555-5555",
+    "website": "https://www.abccorp.com",
+    "image": "abccorp.png",
+    "membershipLevel": 1,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  },
+  {
+    "id": 2,
+    "name": "XYZ Inc.",
+    "address": "456 Elm St, Othertown, USA",
+    "phone": "555-123-4567",
+    "website": "https://www.xyzinc.com",
+    "image": "xyzinc.png",
+    "membershipLevel": 2,
+    "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "id": 3,
+    "name": " DEF Enterprises",
+    "address": "789 Oak St, Thistown, USA",
+    "phone": "555-901-2345",
+    "website": "https://www.defenterprises.com",
+    "image": "defenterprises.png",
+    "membershipLevel": 3,
+    "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  {
+    "id": 4,
+    "name": "GHI Ventures",
+    "address": "901 Maple St, Thatville, USA",
+    "phone": "555-111-2222",
+    "website": "https://www.ghiventures.com",
+    "image": "ghiventures.png",
+    "membershipLevel": 1,
+    "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+  },
+  {
+    "id": 5,
+    "name": "JKL Industries",
+    "address": "234 Pine St, Thiscity, USA",
+    "phone": "555-333-4444",
+    "website": "https://www.jklindustries.com",
+    "image": "jklindustries.png",
+    "membershipLevel": 2,
+    "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  },
+  {
+    "id": 6,
+    "name": "MNO Solutions",
+    "address": "567 Cedar St, Otherplace, USA",
+    "phone": "555-555-1234",
+    "website": "https://www.mnosolutions.com",
+    "image": "mnosolutions.png",
+    "membershipLevel": 3,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  },
+  {
+    "id": 7,
+    "name": "PQR Services",
+    "address": "890 Walnut St, Somewhere, USA",
+    "phone": "555-123-5678",
+    "website": "https://www.pqrservices.com",
+    "image": "pqrservices.png",
+    "membershipLevel": 1,
+    "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  }
+]
