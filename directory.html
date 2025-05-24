@@ -7,7 +7,7 @@
   <meta name="description" content="Directory page for the San Miguel Chamber of Commerce website. Find local businesses and their details." />
   <meta name="author" content="Siyanda Mpofu" />
 
-  <!-- Open Graph / Facebook Meta -->
+  <!-- Open Graph Meta -->
   <meta property="og:title" content="San Miguel Chamber Directory - Siyanda Mpofu" />
   <meta property="og:description" content="Find trusted businesses in the San Miguel Chamber of Commerce." />
   <meta property="og:image" content="images/preview.jpg" />
@@ -17,29 +17,110 @@
   <!-- Favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+
   <!-- CSS -->
   <link rel="stylesheet" href="chamber/css/directory.css" />
+  <link rel="stylesheet" href="chamber/css/directory-large.css" />
 
   <!-- JS -->
   <script defer src="chamber/java/directory.js"></script>
 </head>
 <body>
-  <header>
-    <h1>San Miguel Chamber Directory</h1>
-    <nav>
-      <button id="grid-view" aria-label="Grid view">Grid View</button>
-      <button id="list-view" aria-label="List view">List View</button>
-    </nav>
-  </header>
+  <div class="header-large">
+    <header>
+      <img src="chamber/images/Home page.png" alt="San Miguel Chamber Logo" width="50" height="50">
+      <div>
+        <h3>San Miguel</h3>
+        <h4>Chamber of Commerce</h4>
+      </div>
+      <button id="hamButton" aria-label="hamburger-menu"></button>
+    </header>
 
-  <main id="member-directory" class="grid-view" aria-live="polite"></main>
+    <nav id="animated-nav">
+      <ul class="menuLinks">
+        <li><a href="#">Home</a></li>
+        <li class="current-menu-item"><a href="#">Directory</a></li>
+        <li><a href="#">Join</a></li>
+        <li><a href="#">Events</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <section class="events">
+  <h2>Events</h2>
+  <!-- Add actual events here -->
+</section>
+
+<section class="current-weather">
+  <h2>Current Weather</h2>
+  <img src="weather-icon.png" alt="Partly cloudy with snow and sun" />
+  <p>75°F</p>
+  <p>Partly Cloudy</p>
+  <p><strong>High:</strong> 85°F</p>
+  <p><strong>Low:</strong> 52°F</p>
+  <p><strong>Humidity:</strong> 34%</p>
+  <p><strong>Sunrise:</strong> 7:30 am</p>
+  <p><strong>Sunset:</strong> 9:59 pm</p>
+</section>
+
+<section class="forecast">
+  <h2>Weather Forecast</h2>
+  <p><strong>Today:</strong> 90°F</p>
+  <p><strong>Wednesday:</strong> 89°F</p>
+  <p><strong>Thursday:</strong> 68°F</p>
+  <a href="#" class="keynote-link">Keynote tickets</a>
+</section>
+<section class="keynote"></section>
+
+  <main>
+    <div class="directory-hero">
+      <img class="hero" src="chamber/images/land scape.jpeg" alt="San Miguel Cityscape">
+      <h1>Business Directory</h1>
+    </div>
+
+    <div class="display-type">
+      <button id="grid-view" aria-label="Grid View">
+        <img src="chamber/images/grid_icon.png" alt="Grid View Icon">
+      </button>
+      <button id="list-view" aria-label="List View">
+        <img src="chamber/images/list_icon.png" alt="List View Icon">
+      </button>
+    </div>
+
+    <div id="member-directory" class="grid-view" aria-live="polite"></div>
+  </main>
 
   <footer>
-    <footer>
-        <p>&copy;2025  😎Siyanda Mpofu😎  South Africa</p>
-        <b>getsdates.js.lastModified : </b>
-        <script>document.write(document.lastModified); </script>
-    </footer>
+    <div class="project-info">
+      <h4>San Miguel Chamber of Commerce</h4>
+      <p>South Africa, Siyanda Mpofu</p>
+      <p>info@sanmiguelchamber.org</p>
+      <p>+27 12 345 6789</p>
+    </div>
+
+    <div class="social-media">
+      <a href="https://facebook.com"><img src="chamber/images/facebook.png" alt="Facebook"></a>
+      <a href="https://twitter.com"><img src="chamber/images/twitter.jpeg" alt="Twitter"></a>
+      <a href="https://instagram.com"><img src="chamber/images/instagram.jpeg" alt="Instagram"></a>
+    </div>
+
+    <div class="course-info">
+      <h4>WDD231 Class Project</h4>
+      <p>Siyanda Mpofu</p>
+      <p>&copy; <span id="current-year"></span></p>
+      <p>Last Modified: <span id="last-modified"></span></p>
+    </div>
   </footer>
+
+  <script>
+    // Footer date logic
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+    document.getElementById("last-modified").textContent = document.lastModified;
+  </script>
 </body>
 </html>
+

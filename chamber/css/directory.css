@@ -1,4 +1,4 @@
-/* Reset some styles */
+/* === Reset and Base Styles === */
 * {
   margin: 0;
   padding: 0;
@@ -6,38 +6,125 @@
 }
 
 body {
-  font-family: system-ui, sans-serif;
-  margin: 0;
-  background: #f5f5f5;
+  font-family: 'Roboto Slab', serif;
+  background-color: #f5f5f5;
   color: #222;
+  line-height: 1.6;
+}
+
+/* === Header Styles === */
+.header-large {
+  background: #222;
+  color: white;
 }
 
 header {
-  background: #222;
-  color: white;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 1rem;
 }
 
-nav {
-  margin-top: 1rem;
+header img {
+  margin-right: 1rem;
 }
 
-button {
-  margin: 0.5rem;
-  padding: 0.5rem 1rem;
+header div h3,
+header div h4 {
+  margin: 0;
+}
+
+#hamButton {
+  background: none;
   border: none;
-  background: #007acc;
+  width: 40px;
+  height: 40px;
+  background-image: url('../icons/hamburger.svg'); /* Replace with actual icon */
+  background-size: cover;
+  cursor: pointer;
+}
+
+/* === Navigation === */
+nav {
+  background-color: #444;
+  padding: 0.5rem 1rem;
+}
+
+.keynote-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: rgba(135, 206, 235, 0.5); /* light blue transparent */
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+
+.menuLinks {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.menuLinks a {
   color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menuLinks .current-menu-item a {
+  text-decoration: underline;
+}
+
+/* === Directory Hero === */
+.directory-hero {
+  position: relative;
+  text-align: center;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.directory-hero img.hero {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  max-height: 300px;
+  filter: brightness(0.6);
+}
+
+.directory-hero h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;
+}
+
+/* === View Toggle Buttons === */
+.display-type {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.display-type button {
+  background: none;
+  border: 2px solid #007acc;
+  padding: 0.5rem;
   border-radius: 5px;
   cursor: pointer;
 }
 
-button:hover {
-  background: #005fa3;
+.display-type img {
+  width: 24px;
+  height: 24px;
 }
 
-main {
+/* === Member Directory === */
+#member-directory {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1rem;
@@ -72,9 +159,18 @@ main {
   text-decoration: underline;
 }
 
+/* === List View Adjustments === */
+.list-view {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
 .list-view .member-card {
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   text-align: left;
 }
 
@@ -82,9 +178,57 @@ main {
   display: none;
 }
 
+/* === Footer === */
 footer {
   background: #222;
   color: white;
+  padding: 2rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
   text-align: center;
-  padding: 1rem;
+}
+
+footer h4 {
+  margin-bottom: 0.5rem;
+}
+
+footer a img {
+  width: 24px;
+  height: 24px;
+  margin: 0 0.25rem;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* === Responsive Fixes === */
+@media (max-width: 600px) {
+  .list-view .member-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .list-view .member-card img {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .directory-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menuLinks {
+    flex-direction: column;
+    align-items: center;
+  }
 }
