@@ -1,46 +1,71 @@
-const memberDirectory = document.getElementById('member-directory');
-const gridViewButton = document.getElementById('grid-view');
-const listViewButton = document.getElementById('list-view');
+const directory = document.getElementById('member-directory');
+const gridBtn = document.getElementById('grid-view');
+const listBtn = document.getElementById('list-view');
+const lastModified = document.getElementById('last-modified');
+const year = document.getElementById('year');
+const url = "https://example.com/chamber/data/members.json"; // Replace with actual URL if needed
 
-async function fetchMembers() {
+const getBusinessData = async (displayBusinessStyleValue) => {
+    cards.innerHTML = "";
+    
     try {
-        const response = await fetch('members.json');
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
+        const response = await fetch(url);
+        const data = await response.json();
+        // console.table(data.members);
+        // console.log(displayBusinessStyle.value)
+ 
+        if (displayBusinessStyleValue == "card") {
+            displayLogoCards(data.members);
+        } else if (displayBusinessStyleValue == "list") {
+            displayBusinessList(data.members);
         }
-        const members = await response.json();
-        return members;
     } catch (error) {
-        console.error('Error fetching members:', error);
+        console.error("Error fetching data:", error); // Handle any errors    
     }
 }
 
-async function displayMembers() {
-    const members = await fetchMembers();
-    memberDirectory.innerHTML = '';
-    members.forEach((member) => {
-        const memberCard = document.createElement('div');
-        memberCard.classList.add('member-card');
-        memberCard.innerHTML = `
-            <h2>${member.name}</h2>
-            <p>${member.address}</p>
-            <p>${member.phone}</p>
-            <p><a href="${member.website}">${member.website}</a></p>
-            <img src="images/${member.image}" alt="${member.name}">
-            <p>${member.description}</p>
-        `;
-        memberDirectory.appendChild(memberCard);
-    });
+async function fetchMembers() {
+  try {
+    const response = await fetch('chanmber/data/members.json');
+    if (!response.ok) throw new Error('Network response was not ok');
+    const members = await response.json();
+    displayMembers(members);
+  } catch (error) {
+    console.error('Failed to fetch data:', error);
+  }
 }
 
-gridViewButton.addEventListener('click', () => {
-    memberDirectory.classList.add('grid-view');
-    memberDirectory.classList.remove('list-view');
+function displayMembers(members) {
+  directory.innerHTML = '';
+  members.forEach(member => {
+    const card = document.createElement('div');
+    card.className = 'member-card';
+
+    card.innerHTML = `
+      <img src="images/${member.image}" alt="${member.name} logo" loading="lazy" />
+      <div>
+        <h2>${member.name}</h2>
+        <p>${member.address}</p>
+        <p>${member.phone}</p>
+        <a href="${member.website}" target="_blank" rel="noopener">Visit Website</a>
+      </div>
+    `;
+    directory.appendChild(card);
+  });
+}
+
+gridBtn.addEventListener('click', () => {
+  directory.classList.add('grid-view');
+  directory.classList.remove('list-view');
 });
 
-listViewButton.addEventListener('click', () => {
-    memberDirectory.classList.add('list-view');
-    memberDirectory.classList.remove('grid-view');
+listBtn.addEventListener('click', () => {
+  directory.classList.add('list-view');
+  directory.classList.remove('grid-view');
 });
 
-displayMembers();
+document.addEventListener('DOMContentLoaded', () => {
+  fetchMembers();
+  lastModified.textContent = document.lastModified;
+  year.textContent = new Date().getFullYear();
+});
